@@ -1,0 +1,106 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block css %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="breadcrumb">
+                <a class="breadcrumb-item" href="{% url 'home'  %}">Gallery</a>
+                <a class="breadcrumb-item">Search</a>
+                <span class="breadcrumb-item active" aria-current="page">query = "{{query}}"</span>
+            </nav>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">Search Results</h1>
+                    <p class="text-center">query = <span class="lead">"{{query}}"</span></p>
+                </div>
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item" href="#">Snippet</a>
+                    <a class="breadcrumb-item" href="#">Results</a>
+                </nav>
+                {% for snippet in snippets %}
+                <div class="col-md-4 my-3">
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img src="{{snippet.thumbnail.url}}" class="img-fluid rounded-start" alt="Code">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text">{{snippet.category}}</p>
+                                    <a href="{% url 'view_snippet' snippet.id %}" class="btn btn-primary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-md-12">
+                    <p class="text-center">No results found in Code Snippets.</p>
+                </div>
+
+                {% endfor %}
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item" href="#">Category</a>
+                    <a class="breadcrumb-item" href="#">Results</a>
+                </nav>
+                {% for category in categories %}
+                <div class="col-md-4 my-3">
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text">{{category.name}}</p>
+                                    <a href="{% url 'view_category' category.id %}" class="btn btn-primary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-md-12">
+                    <p class="text-center">No results found in categories.</p>
+                </div>
+
+                {% endfor %}
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item" href="#">Graphs</a>
+                    <a class="breadcrumb-item" href="#">Results</a>
+                </nav>
+                {% for graph in graphs %}
+                <div class="col-md-4 my-3">
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text">{{graph.name}}</p>
+                                    <a href="{% url 'view_graph' graph.id %}" class="btn btn-primary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-md-12">
+                    <p class="text-center">No results found in Graphs.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>  
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}

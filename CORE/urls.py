@@ -24,6 +24,7 @@ urlpatterns = [
     path('graph/', include('graph.urls')),
     path('gallery/', include('gallery.urls')),
     path('profile/', include('profiles.urls')),   
+    path('chat/', include('chat.urls')),
     path('', include('app.urls')),
 ]
 # debug mode for media and static files

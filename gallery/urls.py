@@ -11,4 +11,5 @@ urlpatterns = [
     path('snippet/<int:id>/edit/', views.edit_snippet, name='edit_snippet'),
     path('category/<int:id>/delete/', views.delete_category, name='delete_category'),
     path('snippet/<int:id>/delete/', views.delete_snippet, name='delete_snippet'),
+    path('search/', views.search, name='search')
 ]

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'graph',
     'django_bootstrap5',
     'pygments',
+    'chat',
     
     ]
 

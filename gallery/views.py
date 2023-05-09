@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import snippet, category
 from .forms import categoryForm, snippetForm
+from graph.models import graph
 # Create your views here.
 
 def home_gallery(request):
@@ -86,3 +87,13 @@ def delete_snippet(request, id):
     messages.success(request, 'Your details added successfully')
     return redirect('home_snippet.html')
 
+def search(request):
+    if request.method == 'POST':
+        searched = request.POST['query']
+        snippets = snippet.objects.filter(code__icontains=searched)
+        categories = category.objects.filter(name__icontains=searched)
+        graphs = graph.objects.filter(name__icontains=searched)
+        ctx = {'query': searched, 'snippets': snippets, 'categories': categories, 'graphs': graphs}
+        return render(request, 'gallery/search.html', ctx)
+    else:
+        return render(request, 'gallery/search.html', {})
