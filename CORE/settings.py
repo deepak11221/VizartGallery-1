@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'profiles',
     'graph',
     'django_bootstrap5',
-]
+    'pygments',
+    
+    ]
 
 SITE_ID = 3
 

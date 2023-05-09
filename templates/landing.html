@@ -19,9 +19,7 @@
     height:70vh ;
     margin: .2rem;
     font-size: 2rem;
-    padding: 1rem; 
-    background: rgb(181,178,221);
-    background: radial-gradient(circle, rgba(181,178,221,1) 0%, rgba(115,209,208,1) 20%, rgba(216,116,219,1) 40%, rgba(158,223,179,1) 60%, rgba(208,201,143,0.8995973389355743) 80%, rgba(188,230,232,1) 100%);
+    padding: 1rem;     
     text-align: center;
 }
 button{
@@ -48,6 +46,9 @@ button:hover{
     border: 1px solid rgb(111, 8, 172);
 }
 .graph{
+    
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -58,8 +59,12 @@ button:hover{
     background-color:white;
     
     
+    
 }
 .content{
+    
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -67,7 +72,7 @@ button:hover{
     margin: .2rem;
     font-size: 2rem;
     padding: 1rem; 
-    background-color:rgb(203, 224, 233);
+   
     
     
 }
@@ -98,6 +103,7 @@ button:hover{
           <p>
             Start from Observable Plot rather than scratch with plug-and-play code snippets that accelerate your ability to turn complex data into clear, visual stories.
           </p>
+          
           <button>LET'S Try now </button>
           
     </div>
@@ -110,9 +116,8 @@ button:hover{
   </section>
 <section class="content">
     <div class="right">
-        <a class="navbar-brand" href="#">
-            
-            <video src="(% static 'images/video.mp4' %)"> video</video>
+        <a class="navbar-brand" href="#">          
+            <video width="500px" height="500px" src="{% static 'videos/intro.mp4' %}" loop autoplay/>
         </a>
     </div>
     <div class="left">

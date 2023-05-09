@@ -5,37 +5,37 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <nav class="breadcrumb">
-                <a class="breadcrumb-item" href="{% url 'home'  %}">Gallery</a>
-                <a class="breadcrumb-item" href="{% url 'view_graph' cat.graph.id %}">{{cat.graph.name}}</a>
-                <span class="breadcrumb-item active" aria-current="page">{{cat}}</span>
-            </nav>
-            <div class="row">
-                
-                {% for snippet in snippets %}
-                <div class="col-md-4 my-3">
-                    <div class="card mb-3">
-                        <div class="row g-0">
-                          <div class="col-md-6">
-                            <img src="{{snippet.thumbnail.url}}" class="img-fluid rounded-start" alt="Code">
-                          </div>
-                          <div class="col-md-6">
-                            <div class="card-body">
-                              <p class="card-text">{{snippet.category}}</p>
-                              <p class="card-text"><small class="text-muted">{{snippet.description}}</small></p>
-                                <a href="{% url 'view_snippet' snippet.id %}" class="btn btn-primary">View</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="breadcrumb">
+        <a class="breadcrumb-item" href="{% url 'home'  %}">Gallery</a>
+        <a class="breadcrumb-item" href="{% url 'view_graph' cat.graph.id %}">{{cat.graph.name}}</a>
+        <span class="breadcrumb-item active" aria-current="page">{{cat}}</span>
+      </nav>
+      <div class="row">
+        
+        {% for snippet in snippets %}
+        <div class="col-md-4 my-3">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <img src="{{snippet.thumbnail.url}}" class="img-fluid rounded-start" alt="Code">
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <p class="card-text">{{snippet.category}}</p>
+                  
+                  <a href="{% url 'view_snippet' snippet.id %}" class="btn btn-primary">View</a>
                 </div>
-                {% endfor %}
-                    
+              </div>
             </div>
+          </div>
         </div>
+        {% endfor %}
+        
+      </div>
     </div>
+  </div>
 </div>
 
 
@@ -47,5 +47,5 @@
 
 {% endblock %}
 {% block js %}
-    
+
 {% endblock %}
