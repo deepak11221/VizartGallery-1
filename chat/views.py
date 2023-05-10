@@ -4,7 +4,7 @@ import pickle
 import pandas as pd
 import random
 # Create your views here.
-rdf = pd.read_csv(r'C:\Users\devgu\Documents\VIZIgizi\chat\static\csv\bot_response_dataset.csv')
+rdf = pd.read_csv(r'E:\python\VIZIgizi\chat\static\csv\bot_response_dataset.csv')
 
 def load_model():
     with open(r'chat\static\models\model.pkl', 'rb') as f:
